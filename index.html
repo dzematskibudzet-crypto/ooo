@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<title>Džamija Pobrđe</title>
+
+<style>
+html, body{
+  margin:0;
+  padding:0;
+  height:100%;
+  font-family: Arial, sans-serif;
+  color:white;
+}
+
+body{
+  background: url("background.png") no-repeat center center;
+  background-size: cover;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+/* SAT */
+#sat{
+  text-align:right;
+  padding:40px 80px 0 0;
+  font-size:70px;
+  font-weight:bold;
+}
+
+/* SREDINA */
+#vremena{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:60px;
+  padding:0 200px;
+}
+
+.namaz{
+  display:flex;
+  justify-content:space-between;
+  font-size:110px;
+  font-weight:bold;
+}
+
+/* COUNTDOWN TRAKA */
+#countdown{
+  text-align:center;
+  font-size:60px;
+  padding-bottom:80px;
+  color:black;
+}
+</style>
+</head>
+
+<body>
+
+<div id="sat"></div>
+
+<div id="vremena">
+  <div class="namaz"><span>ZORA</span><span>04:38</span></div>
+  <div class="namaz"><span>IZLAZAK</span><span>06:08</span></div>
+  <div class="namaz"><span>PODNE</span><span>12:00</span></div>
+</div>
+
+<div id="countdown">
+  ZORA nastupa za: 02:15:10
+</div>
+
+<script>
+function updateSat(){
+  const now=new Date();
+  document.getElementById("sat").innerHTML=
+    now.toLocaleTimeString("bs-RS",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+}
+setInterval(updateSat,1000);
+updateSat();
+</script>
+
+</body>
+</html>
